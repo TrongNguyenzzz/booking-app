@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./pages/home/Home.jsx";
 import List from "./pages/list/List.jsx";
+import Hanoi from './pages/city/Hanoi.jsx';
 
 import './App.css';
 
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/hotels' element={<List/>}/>
+        <Route path='/hanoi' element={<Hanoi/>}/>
       </Routes>
     </BrowserRouter>
   );

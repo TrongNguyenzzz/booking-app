@@ -2,12 +2,20 @@ import "./featured.css";
 import tucson from "../../assets/cityImg/tucson.png";
 import hanoi from "../../assets/cityImg/hanoi.png";
 import dongha from "../../assets/cityImg/dongha.png";
+import { useNavigate } from "react-router-dom";
 
 const Featured = () => {
+
+    const navigate = useNavigate();
+
+    const handleHanoi = () => {
+        navigate("/hanoi");
+    }
+
     return (
         <div className="featured">
             <div className="featureItem">
-                <img className = "featuredImg1" src = { hanoi } alt = "hanoi"/>
+                <img className = "featuredImg1" src = { hanoi } alt = "hanoi" onClick={handleHanoi}/>
                 <div className="featureTitle">
                     <h1> Hà Nội </h1>
                 </div>
