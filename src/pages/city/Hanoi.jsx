@@ -93,9 +93,7 @@ const Hanoi = () => {
                         ))}
                     </div>
                     <div className="hotelsDetails">
-                        <div className="hotelDetailText">
-                            <h1 className="hotelTitle"> Best Dishes in Hà Nội </h1>
-                        </div>
+                        <h2 className="hoteldesc"> Best Dishes in Hà Nội </h2>
                         <p className="dishDesc">
                             1. Phở
                         </p>
