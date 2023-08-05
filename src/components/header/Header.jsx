@@ -38,6 +38,20 @@ const Header = ({type}) => {
         navigate("/hotels", { state: {destination, date, options}})
     }
 
+    const handleClickDate = () => {
+        if(openOption) {
+            setOpenOption(!openOption);
+        }
+        setOpenDate(!openDate);
+    }
+
+    const handleClickGuest = () => {
+        if(openDate) {
+            setOpenDate(!openDate);
+        }
+        setOpenOption(!openOption);
+    }
+
     return(
         <div className="header">
             <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
@@ -75,7 +89,7 @@ const Header = ({type}) => {
 
                     <div className="headerSearchItem"> 
                             <FaCalendarAlt style={{color: "lightgray"}}/>
-                        <span onClick={() => setOpenDate(!openDate)} className="headerSearchText">{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+                        <span onClick={handleClickDate} className="headerSearchText">{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
                         {openDate && <DateRange
                         editableDateInputs={true}
                         onChange={item => setDate([item.selection])}
@@ -88,7 +102,7 @@ const Header = ({type}) => {
 
                     <div className="headerSearchItem"> 
                             <BsFillPersonFill style={{color: "lightgray"}}/>
-                        <span onClick={() => setOpenOption(!openOption)} className="headerSearchText"> {`${options.adult} adult · ${options.children} children · ${options.room} room`} </span>
+                        <span onClick={handleClickGuest} className="headerSearchText"> {`${options.adult} adult · ${options.children} children · ${options.room} room`} </span>
                         {openOption && <div className="options">
                             <div className="optionItem">
                                 <span className="optionText">Adult</span>

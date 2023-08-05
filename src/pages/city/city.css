@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    padding-bottom: 50px;
 }
 
 .hotelWrapper {
@@ -9,7 +10,6 @@
     max-width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .hotelImgWrapper {
@@ -18,6 +18,7 @@
 
 .hotelImg {
     width: 100%;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -74,4 +75,24 @@
     font-size: 50px;
     color: lightgray;
     cursor: pointer;
+}
+
+.hotelDescription {
+    padding-bottom: 20px;
+    font-size: 120%;
+}
+
+.dishDesc {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.dishImg {
+    width: 50%;
+}
+
+.placeDesc {
+    font-size: 100%;
+    text-align: center;
+    font-weight: bold;
 }
