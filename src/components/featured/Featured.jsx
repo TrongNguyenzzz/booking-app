@@ -12,6 +12,14 @@ const Featured = () => {
         navigate("/hanoi");
     }
 
+    const handleDongha = () => {
+        navigate("/dongha");
+    }
+
+    const handleTucson = () => {
+        navigate("/tucson");
+    }
+
     return (
         <div className="featured">
             <div className="featureItem">
@@ -22,14 +30,14 @@ const Featured = () => {
             </div>
 
             <div className="featureItem">
-                <img className = "featuredImg2" src = { dongha } alt = "dongha"/>
+                <img className = "featuredImg2" src = { dongha } alt = "dongha" onClick={handleDongha}/>
                 <div className="featureTitle">
                     <h1> Đông Hà </h1>
                 </div>
             </div>
 
             <div className="featureItem">
-                <img className = "featuredImg3" src = { tucson } alt = "tucson"/>
+                <img className = "featuredImg3" src = { tucson } alt = "tucson" onClick={handleTucson}/>
                 <div className="featureTitle">
                     <h1> Tucson </h1>
                 </div>

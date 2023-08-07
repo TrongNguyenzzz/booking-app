@@ -8,11 +8,13 @@ import hanoi3 from "../../assets/pageCity/hanoi/hanoi3.png";
 import hanoi4 from "../../assets/pageCity/hanoi/hanoi4.png";
 import hanoi5 from "../../assets/pageCity/hanoi/hanoi5.png";
 import hanoi6 from "../../assets/pageCity/hanoi/hanoi6.png";
+
 import pho from "../../assets//pageCity/hanoi/food/phobo.png";
 import buncha from "../../assets//pageCity/hanoi/food/buncha.png";
 import bundau from "../../assets//pageCity/hanoi/food/bundau.png";
 import chaca from "../../assets//pageCity/hanoi/food/chaca.png";
 import caphe from "../../assets//pageCity/hanoi/food/caphe.png";
+
 import { AiOutlineArrowRight, AiOutlineArrowLeft, AiFillCloseCircle } from "react-icons/ai";
 import { useState } from "react";
 
@@ -92,6 +94,7 @@ const Hanoi = () => {
                             </div>
                         ))}
                     </div>
+
                     <div className="hotelsDetails">
                         <h2 className="hoteldesc"> Best Dishes in Hà Nội </h2>
                         <p className="dishDesc">
@@ -102,7 +105,7 @@ const Hanoi = () => {
                         Vietnamese noodle soup that has become internationally renowned for 
                         its rich and comforting flavors. It is a staple of Vietnamese cuisine 
                         and is often considered a symbol of the country's culinary heritage. </p>
-                        <p className="ingredient"> <span style={{fontSize: "100%", fontWeight: "bold"}}>Ingredients:</span> Brooth, Noodles, Protein, Garnishes, Condiments</p>
+                        <p className="ingredient"> <span style={{fontSize: "100%", fontWeight: "bold"}}>Ingredients:</span> Brooth, Noodles (Banh Pho), Protein, Garnishes, Condiments.</p>
                     
                         <p className="dishDesc">
                             2. Bún Chả
@@ -113,7 +116,7 @@ const Hanoi = () => {
                         the capital city. It's a flavorful and satisfying meal that showcases the 
                         harmonious combination of grilled pork, fresh herbs, rice noodles, and a dipping sauce </p>
                         <p className="ingredient"> <span style={{fontSize: "100%", fontWeight: "bold"}}>Ingredients:</span> Grilled Pork Patties, Pork Belly or Pork Slices, 
-                        Rice Noodles (Bun), Fresh Herbs and Vegetables, Dipping Sauce</p>
+                        Rice Noodles (Bun), Fresh Herbs and Vegetables, Dipping Sauce.</p>
 
                         <p className="dishDesc">
                             3. Chả Cá Lã Vọng
@@ -125,7 +128,7 @@ const Hanoi = () => {
                         It's a unique and flavorful preparation of grilled fish that's accompanied
                         by a variety of herbs, rice noodles, and condiments. </p>
                         <p className="ingredient"> <span style={{fontSize: "100%", fontWeight: "bold"}}>Ingredients:</span> Fish, Turmeric Marinade, 
-                        Rice Noodles (Bun), Herbs and Vegetables, Peanuts and Condiments</p>
+                        Rice Noodles (Bun), Herbs and Vegetables, Peanuts and Condiments.</p>
 
                         <p className="dishDesc">
                             4. Bún Đậu Mắm Tôm
@@ -137,7 +140,7 @@ const Hanoi = () => {
                         a fermented shrimp paste dipping sauce (mam tom), and an array of fresh herbs.  </p>
                         <p className="ingredient"> <span style={{fontSize: "100%", fontWeight: "bold"}}>Ingredients: </span> 
                         Tofu, Rice Vermicelli Noodles (Bun), Fermented Shrimp Paste Dipping Sauce (Mam Tom), 
-                        Fresh Herbs and Vegetables</p>
+                        Fresh Herbs and Vegetables.</p>
 
                         <p className="dishDesc">
                             5. Cà Phê Trứng
@@ -147,7 +150,7 @@ const Hanoi = () => {
                         that originated in Vietnam, particularly in Hanoi. This unique coffee preparation involves a
                         creamy egg-based topping that adds a rich and indulgent flavor to the coffee.  </p>
                         <p className="ingredient"> <span style={{fontSize: "100%", fontWeight: "bold"}}>Ingredients: </span> 
-                        Vietnamese Coffee, Egg Yolks, Condensed Milk</p>
+                        Vietnamese Coffee, Egg Yolks, Condensed Milk.</p>
                     </div>
                 </div>
             </div>

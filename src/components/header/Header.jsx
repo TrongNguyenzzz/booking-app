@@ -1,13 +1,15 @@
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import "./header.css";
-import { FaHotel, FaBed, FaCalendarAlt } from 'react-icons/fa';
-import { BsFillAirplaneFill, BsFillCarFrontFill, BsTaxiFrontFill, BsFillPersonFill } from 'react-icons/bs';
+import { FaBed, FaCalendarAlt } from 'react-icons/fa';
+import { AiFillHome } from 'react-icons/ai';
+import { BsFillAirplaneFill, BsFillPersonFill } from 'react-icons/bs';
 import { MdTour  } from 'react-icons/md';
 import { DateRange } from "react-date-range";
 import {useState} from 'react';
 import {format} from "date-fns";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+
 
 const Header = ({type}) => {
     const navigate = useNavigate();
@@ -52,29 +54,20 @@ const Header = ({type}) => {
         setOpenOption(!openOption);
     }
 
+
+
     return(
         <div className="header">
             <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
                 <div className="headerList">
-                    <div className="headerListItem active">
-                        <FaHotel/>
-                        <span>Stays</span>
+                    <div className="headerListItem">
+                        <li><Link to = "/" > <AiFillHome/> Home </Link></li>
                     </div>
                     <div className="headerListItem">
-                        <BsFillAirplaneFill/>
-                        <span>Flight</span>
+                        <li><a  href="https://www.google.com/travel/flights" > <BsFillAirplaneFill/> Flight </a></li>
                     </div>
                     <div className="headerListItem">
-                        <BsFillCarFrontFill/>
-                        <span>Car rental</span>
-                    </div>
-                    <div className="headerListItem">
-                        <MdTour/>
-                        <span>Attractions</span>
-                    </div>
-                    <div className="headerListItem">
-                        <BsTaxiFrontFill/>
-                        <span>Taxis</span>
+                        <li><Link to = "/" > <MdTour/> Attractions </Link></li>
                     </div>
                 </div>
                 { type !== "list" &&
@@ -132,7 +125,7 @@ const Header = ({type}) => {
                     </div>
 
                     <div className="headerSearchItem"> 
-                        <button className="headerBtn" style={{color: "#003580"}} onClick={handleSearch}> Search </button>
+                        <button className="headerBtn" style={{color: "gray"}} onClick={handleSearch}> Search </button>
                     </div>
                 </div>
                 </div>}

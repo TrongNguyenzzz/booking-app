@@ -24,11 +24,13 @@
 .featuredImg2 {
     width: 118%;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .featuredImg3 {
     width: 120%;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .featureTitle {

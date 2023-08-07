@@ -1,5 +1,5 @@
 .header {
-    background-color: #003580;
+    background-color: gray;
     color: white;
     display: flex;
     justify-content: center;
@@ -25,12 +25,25 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
 }
 
-.headerListItem.active {
+.headerListItem li a:focus {
     border: 1px solid white;
     padding: 10px;
     border-radius: 20px;
+    cursor: pointer;
+}
+
+.headerListItem li a {
+    color: white;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.headerListItem li {
+    list-style-type: none;
+    text-decoration: none;
 }
 
 .headerSearch {
