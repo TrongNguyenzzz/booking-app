@@ -23,5 +23,20 @@
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    color: gray;
+    color: black;
+}
+
+.navButton1 {
+    margin-left: 20px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: black;
+    margin-top: 8px;
+    margin-right: 5px;
+}
+
+.navItems1 {
+    display: flex;
+    flex-direction: row;
 }

@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { sendToVercelAnalytics } from './vitals';
+import { SearchContextProvider } from './context/SearchContext';
+import { AuthContextProvider } from './context/AuthContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AuthContextProvider>
+      <SearchContextProvider>
+        <App />
+      </SearchContextProvider>  
+    </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

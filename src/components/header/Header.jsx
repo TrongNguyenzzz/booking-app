@@ -1,27 +1,31 @@
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import "./header.css";
-import { FaBed, FaCalendarAlt } from 'react-icons/fa';
+import { FaBed, FaCalendarAlt, FaHistory } from 'react-icons/fa';
 import { AiFillHome } from 'react-icons/ai';
 import { BsFillAirplaneFill, BsFillPersonFill } from 'react-icons/bs';
 import { MdTour  } from 'react-icons/md';
 import { DateRange } from "react-date-range";
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import {format} from "date-fns";
 import { useNavigate, Link } from 'react-router-dom';
+import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from '../../context/AuthContext';
 
 
 const Header = ({type}) => {
     const navigate = useNavigate();
     const [destination, setDestination] = useState("");
     const [openDate, setOpenDate] = useState(false);
-    const [date, setDate] = useState([
+    const [dates, setDates] = useState([
         {
           startDate: new Date(),
           endDate: new Date(),
           key: 'selection'
         }
       ]);
+    
+    const { user } = useContext(AuthContext);
 
     const [openOption, setOpenOption] = useState(false);
     const [options, setOptions] = useState({
@@ -36,8 +40,11 @@ const Header = ({type}) => {
         }})
     }
 
+    const { dispatch } = useContext(SearchContext);
+
     const handleSearch = () => {
-        navigate("/hotels", { state: {destination, date, options}})
+        dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
+        navigate("/hotels", { state: {destination, dates, options}})
     }
 
     const handleClickDate = () => {
@@ -56,6 +63,7 @@ const Header = ({type}) => {
 
 
 
+
     return(
         <div className="header">
             <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
@@ -69,6 +77,11 @@ const Header = ({type}) => {
                     <div className="headerListItem">
                         <li><Link to = "/" > <MdTour/> Attractions </Link></li>
                     </div>
+                    {user && (
+                        <div className="headerListItem">
+                            <li><Link to = "/reservation" > <FaHistory/> Reservation </Link></li>
+                        </div>
+                    )}
                 </div>
                 { type !== "list" &&
                 <div>
@@ -82,12 +95,12 @@ const Header = ({type}) => {
 
                     <div className="headerSearchItem"> 
                             <FaCalendarAlt style={{color: "lightgray"}}/>
-                        <span onClick={handleClickDate} className="headerSearchText">{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+                        <span onClick={handleClickDate} className="headerSearchText">{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
                         {openDate && <DateRange
                         editableDateInputs={true}
-                        onChange={item => setDate([item.selection])}
+                        onChange={item => setDates([item.selection])}
                         moveRangeOnFirstSelection={false}
-                        ranges={date}
+                        ranges={dates}
                         className='date'
                         minDate={new Date()}
                         />}

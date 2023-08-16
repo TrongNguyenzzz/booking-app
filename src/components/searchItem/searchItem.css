@@ -10,7 +10,7 @@
 
 .siImg {
     width: 200px;
-    height: 200px;
+    height: 240px;
     object-fit: cover;
     padding: 2%;
 }
@@ -27,7 +27,7 @@
 }
 
 .siDistance {
-    font-size: 100%;
+    font-size: 80%;
 }
 
 .siDetails {
@@ -35,19 +35,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align: right;
 }
 
 .siSubtitle {
-    font-size: 100%;
+    font-size: 90%;
     font-weight: bold;
 }
 
 .siFeatures {
-    font-size: 100%;
+    font-size: 85%;
 }
 
 .siTaxiOp {
-    font-size: 100%;
+    font-size: 80%;
     background-color: #008009;
     color: white;
     width: max-content;
@@ -70,24 +71,6 @@
     color: #008009;
 }
 
-.siRating {
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-}
-
-.siRating>span {
-    font-weight: 500;
-}
-
-.siRating>button {
-    background-color: #003580;
-    color: white;
-    padding: 5px;
-    font-weight: bold;
-    border: none;
-}
-
 .siDetailTexts {
     text-align: right;
     display: flex;
@@ -105,6 +88,15 @@
 }
 
 .siCheckButton {
+    background-color: #003580;
+    color: white;
+    font-weight: bold;
+    padding: 10px 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.siCheckButton1 {
     background-color: #003580;
     color: white;
     font-weight: bold;

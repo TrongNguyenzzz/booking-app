@@ -3,9 +3,10 @@ import tucson from "../../assets/cityImg/tucson.png";
 import hanoi from "../../assets/cityImg/hanoi.png";
 import dongha from "../../assets/cityImg/dongha.png";
 import { useNavigate } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 
 const Featured = () => {
-
+    
     const navigate = useNavigate();
 
     const handleHanoi = () => {
@@ -42,7 +43,6 @@ const Featured = () => {
                     <h1> Tucson </h1>
                 </div>
             </div>
-
         </div>
     )
 }

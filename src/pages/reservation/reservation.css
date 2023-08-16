@@ -1,0 +1,22 @@
+.reservation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 50px;
+}
+
+.myReservation {
+    width: 80%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.myReservation>h1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.reserveImg {
+    width: 20%;
+}
