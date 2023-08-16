@@ -24,10 +24,12 @@ const Login = () => {
         dispatch({type:"LOGIN_START"})
         try{
             const res = await axios.post("http://54.67.36.133:5050/api/auth/login", credentials);
+            console.log("success!");
             dispatch({ type:"LOGIN_SUCCESS", payload:res.data});
             navigate("/");
         } catch(err) {
-            dispatch({type: "LOGIN_FAILURE", payload:err.response.data})
+            console.log("failed!");
+            dispatch({type: "LOGIN_FAILURE", payload:err.response})
         }
     }
 
