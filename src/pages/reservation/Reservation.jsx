@@ -3,6 +3,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import { AuthContext } from "../../context/AuthContext";
 import useFetch from "../../hooks/useFetch";
+import ReserveCard from "./ReserveCard.jsx";
 
 import "./reservation.css"
 
@@ -20,17 +21,20 @@ const Reservation = () => {
             <Header type="list"/>
             <div className="reservation">
                 <div className="myReservation">
-                    <h1> {user.details.username}'s reservation</h1>
-                    {data.map((item) => (
-                        <div>
-                            <img src={item.hotelPhoto} alt="" className="reserveImg"/>
-                            <h2>Hotel: {item.hotelName}</h2>
-                            <h2>Room: {item.roomNumber}</h2>
-                            <h2>Start date: {new Date(item.dates[0]).toLocaleDateString()}</h2>
-                            <h2>End date: {new Date(item.dates[item.dates.length - 1]).toLocaleDateString()}</h2>
-                            <h2>Total Price: ${item.total}</h2>
-                        </div>
-                    ))}
+                    <section>
+                        <h1> {user.details.username}'s reservation</h1>
+                        {data.map((item) => (
+                            <ReserveCard
+                                photo={item.hotelPhoto}
+                                hotel={item.hotelName}
+                                roomNumber={item.roomNumber}
+                                start={new Date(item.dates[0]).toLocaleDateString()}
+                                end={new Date(item.dates[item.dates.length - 1]).toLocaleDateString()}
+                                price={item.total}
+                            >
+                            </ReserveCard>
+                        ))}
+                    </section>
                 </div>
             </div>
         </div>
