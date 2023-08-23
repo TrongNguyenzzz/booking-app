@@ -25,6 +25,8 @@ const Reservation = () => {
                         <h1> {user.details.username}'s reservation</h1>
                         {data.map((item) => (
                             <ReserveCard
+                                reserveId={item._id}
+                                userId={item.user}
                                 photo={item.hotelPhoto}
                                 hotel={item.hotelName}
                                 roomNumber={item.roomNumber}

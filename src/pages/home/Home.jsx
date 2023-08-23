@@ -14,6 +14,7 @@ function Home() {
             <Navbar/>
             <Header/>
             <div className="homeContainer">
+            <h1 className="homeTitle"> Cities </h1>
                 <Featured/>
                 <h1 className="homeTitle"> Different properties type </h1>
                 <PropertyList/>

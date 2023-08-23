@@ -1,7 +1,7 @@
 .footer {
     background-color: gray;
     width: 100%;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .fLists {
@@ -11,6 +11,7 @@
     justify-content: space-between;
     margin-bottom: 50px;
     margin-left: 8.5%;
+    margin-top: 1%;
 }
 
 .fList {
@@ -19,6 +20,7 @@
 
 .fListItem {
     padding-bottom: 1%;
-    font-size: 14px;
+    font-size: 17px;
     cursor: pointer;
+    padding-top: 10px;
 }

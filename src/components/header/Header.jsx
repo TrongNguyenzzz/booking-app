@@ -11,6 +11,8 @@ import {format} from "date-fns";
 import { useNavigate, Link } from 'react-router-dom';
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from '../../context/AuthContext';
+import DatalistInput from 'react-datalist-input';
+import 'react-datalist-input/dist/styles.css';
 
 
 const Header = ({type}) => {
@@ -89,8 +91,24 @@ const Header = ({type}) => {
                 <div className="headerSearch">
                     <div className="headerSearchItem"> 
                             <FaBed style={{color: "lightgray"}}/>
-                        <input type="text" placeholder="Where are you going?" className="headerSearchInput" 
-                        onChange={(e) => setDestination(e.target.value)}/>
+                        {/* <input type="text" placeholder="Where are you going?" className="headerSearchInput" 
+                        onChange={(e) => setDestination(e.target.value)}/> */}
+                        <DatalistInput
+                            placeholder="Where are you going?"
+                            style={{color: "black", fontSize: "15px"}}
+                            onSelect={(item) => setDestination(item.value)}
+                            items={[
+                            { id: 'Hanoi', value: 'Hanoi' },
+                            { id: 'Dongha', value: 'Dongha' },
+                            { id: 'Tucson', value: 'Tucson' },
+                            { id: 'Berlin', value: 'Berlin' },
+                            { id: 'Budapest', value: 'Budapest' },
+                            { id: 'New York', value: 'New York' },
+                            { id: 'Seattle', value: 'Seattle' },
+                            { id: 'Los Angeles', value: 'Los Angeles' },
+                            { id: 'London', value: 'London' },
+                            ]}
+                        />
                     </div>
 
                     <div className="headerSearchItem"> 

@@ -4,14 +4,13 @@ import "./reserve.css"
 import { AiFillCloseCircle } from "react-icons/ai";
 import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Reserve = ({setOpen, hotelId, hotelName, hotelPic, duration}) => {
     const [selectedRoom, setSelectedRoom] = useState([])
-    const { data, loading, error } = useFetch(`http://54.67.36.133:5050/api/hotels/room/${hotelId}`)
+    const { data } = useFetch(`http://54.67.36.133:5050/api/hotels/room/${hotelId}`)
     const { dates } = useContext(SearchContext);
     const { user } = useContext(AuthContext);
 
@@ -69,10 +68,7 @@ const Reserve = ({setOpen, hotelId, hotelName, hotelPic, duration}) => {
             : selectedRoom.filter((item) => item !== value)
         )
     }
-
-    const navigate = useNavigate();
     
-
     const handleClick = async () => {
         try{
             await Promise.all(selectedRoom.map((roomId) => {

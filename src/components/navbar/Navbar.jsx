@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
 
-    const { user, loading, error, dispatch } = useContext(AuthContext);
+    const { user, dispatch } = useContext(AuthContext);
 
     const navigate = useNavigate();
     

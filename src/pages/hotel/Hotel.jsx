@@ -20,7 +20,7 @@ const Hotel = () => {
     const temp = location.pathname.split('/');
     const id = temp[temp.length - 1];
 
-    const { data, loading, error, reFetch } =  useFetch(`http://54.67.36.133:5050/api/hotels/${id}`);
+    const { data, reFetch } =  useFetch(`http://54.67.36.133:5050/api/hotels/${id}`);
     
     const name = data.name;
 
@@ -48,7 +48,10 @@ const Hotel = () => {
         }
     }
 
-    const diffDays = dayDifference(dates[0].endDate, dates[0].startDate);
+    let diffDays = 1;
+    if(dates.length > 0) {
+        diffDays = dayDifference(dates[0].endDate, dates[0].startDate);
+    }
 
     const handleOpen = (i) => {
         setSlideNumber(i);
@@ -66,6 +69,8 @@ const Hotel = () => {
     
         setSlideNumber(newSlideNumber)
     };
+
+    console.log(options);
 
     return(
         <div> 
@@ -96,7 +101,7 @@ const Hotel = () => {
                 <div className="hotelWrapper">
                     <div className="temp">
                         <h1 className="hotelTitle">{data.name}</h1>
-                        <button onClick={handleClick} className="bookNow">Reserve or Book Now!</button>
+                        {dates.length > 0 && (<button onClick={handleClick} className="bookNow">Reserve or Book Now!</button>)}
                         <div className="hotelAddress">
                             <FaLocationDot/>
                             <span>{data.address}</span>
@@ -130,10 +135,19 @@ const Hotel = () => {
                         </div>
 
                         <div className="hotelDetailsPrice">
+                            {dates.length > 0 &&
                             <h2>
                                 <b>${diffDays * data.cheapestPrice * options.room}</b> ({diffDays}{" "}
                                 nights)
                             </h2>
+                            }
+
+                            {dates.length <= 0 &&
+                            <h2>
+                                <b>${data.cheapestPrice}</b> ({diffDays}{" "}
+                                nights)
+                            </h2>
+                            }
                             <div className="tempRate">
                                 <span> Rating </span>
                                 <button className="rateBut">{data.rating ? data.rating : 8.5}</button>

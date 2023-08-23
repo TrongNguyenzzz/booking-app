@@ -1,4 +1,4 @@
-.featured {
+/* .featured {
     width: 80%;
     max-width: 100%;
     display: flex;
@@ -7,21 +7,7 @@
     z-index: 1;
 }
 
-.featureItem {
-    flex: 1;
-    position: relative;
-    color: white;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.featuredImg1 {
-    width: 100%;
-    object-fit: cover;
-    cursor: pointer;
-}
-
-.featuredImg2 {
+/* .featuredImg2 {
     width: 118%;
     object-fit: cover;
     cursor: pointer;
@@ -31,10 +17,34 @@
     width: 120%;
     object-fit: cover;
     cursor: pointer;
-}
+} */
 
 .featureTitle {
     position: absolute;
     bottom: 3px;
     left: 20px;
+}
+
+.swiper {
+    width: 80%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 1;
+}
+
+.featureItem {
+    position: relative;
+    color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 50px;
+}
+
+.featuredImg1 {
+    width: 20vw;
+    height: 40vh;
+    object-fit: cover;
+    cursor: pointer;
 }

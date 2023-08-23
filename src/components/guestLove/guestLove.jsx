@@ -27,8 +27,8 @@ const GuestLove = () => {
             </div>
 
             <div className="fpItem">
-                <img className = "fpImg" src = { review1 } alt = ""/>
-                <span className="fpName"> Tucson guest house </span>
+                <img className = "fpImg" src = { review1 } alt = "" onClick={() => navigate("/hotels/64e2a6df2ef62602b2204168")}/>
+                <span className="fpName"> Tucson Guest House </span>
                 <span className="fpCity"> Tucson </span>
                 <span className="fpPrice"> Starting from $150 </span>
                 <div className="fpRating">
@@ -38,8 +38,8 @@ const GuestLove = () => {
             </div>
 
             <div className="fpItem">
-                <img className = "fpImg" src = { review2 } alt = ""/>
-                <span className="fpName"> Duong guest house </span>
+                <img className = "fpImg" src = { review2 } alt = "" onClick={() => navigate("/hotels/64e2b1f92ef62602b2204173")}/>
+                <span className="fpName"> Duong Guest House </span>
                 <span className="fpCity"> Budapest </span>
                 <span className="fpPrice"> Starting from $120 </span>
                 <div className="fpRating">
@@ -49,10 +49,10 @@ const GuestLove = () => {
             </div>
         
             <div className="fpItem">
-                <img className = "fpImg" src = { review4 } alt = ""/>
-                <span className="fpName"> Villager guest house </span>
+                <img className = "fpImg" src = { review4 } alt = "" onClick={() => navigate("/hotels/64e2b52a2ef62602b2204177")}/>
+                <span className="fpName"> Villager Guest House </span>
                 <span className="fpCity"> Đông Hà </span>
-                <span className="fpPrice"> Starting from $30 </span>
+                <span className="fpPrice"> Starting from $100 </span>
                 <div className="fpRating">
                     <button> 9.5 </button>
                     <span> Excellent </span>

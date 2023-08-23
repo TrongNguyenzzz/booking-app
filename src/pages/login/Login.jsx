@@ -13,7 +13,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const {user, loading, error, dispatch} = useContext(AuthContext);
+    const {error, dispatch} = useContext(AuthContext);
 
     const handleChange = (e) => {
         setCredentials(prev=>({...prev, [e.target.id]: e.target.value}))
@@ -24,12 +24,11 @@ const Login = () => {
         dispatch({type:"LOGIN_START"})
         try{
             const res = await axios.post("http://54.67.36.133:5050/api/auth/login", credentials);
-            console.log("success!");
             dispatch({ type:"LOGIN_SUCCESS", payload:res.data});
             navigate("/");
         } catch(err) {
             console.log("failed!");
-            dispatch({type: "LOGIN_FAILURE", payload:err.response})
+            dispatch({type: "LOGIN_FAILURE", payload:err.response.data})
         }
     }
 
