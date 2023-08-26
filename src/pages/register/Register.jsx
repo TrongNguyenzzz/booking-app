@@ -31,7 +31,7 @@ const Register = () => {
         theme: "light",
         });
 
-    const fail = () => toast.fail("Cannot register!",  {
+    const fail = () => toast.error("Cannot register!",  {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,

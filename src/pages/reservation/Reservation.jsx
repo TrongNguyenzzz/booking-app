@@ -15,6 +15,8 @@ const Reservation = () => {
 
     const { data } =  useFetch(`http://54.67.36.133:5050/api/reservation/find/${userId}`);
 
+    const date = new Date();
+
     return(
         <div>
             <Navbar/>
@@ -23,7 +25,9 @@ const Reservation = () => {
                 <div className="myReservation">
                     <section>
                         <h1> {user.details.username}'s reservation</h1>
-                        {data.map((item) => (
+                        <h1> Current reservation </h1>
+                        {data.map((item) => { if (new Date(item.dates[item.dates.length - 1]).getTime() >= date.getTime()) 
+                        return (
                             <ReserveCard
                                 reserveId={item._id}
                                 userId={item.user}
@@ -33,9 +37,29 @@ const Reservation = () => {
                                 start={new Date(item.dates[0]).toLocaleDateString()}
                                 end={new Date(item.dates[item.dates.length - 1]).toLocaleDateString()}
                                 price={item.total}
+                                current={true}
                             >
                             </ReserveCard>
-                        ))}
+                        )}
+                        )}
+
+                        <h1> Past reservation </h1>
+                        {data.map((item) => { if (new Date(item.dates[item.dates.length - 1]).getTime() < date.getTime()) 
+                        return (
+                            <ReserveCard
+                                reserveId={item._id}
+                                userId={item.user}
+                                photo={item.hotelPhoto}
+                                hotel={item.hotelName}
+                                roomNumber={item.roomNumber}
+                                start={new Date(item.dates[0]).toLocaleDateString()}
+                                end={new Date(item.dates[item.dates.length - 1]).toLocaleDateString()}
+                                price={item.total}
+                                current={false}
+                            >
+                            </ReserveCard>
+                        )}
+                        )}
                     </section>
                 </div>
             </div>

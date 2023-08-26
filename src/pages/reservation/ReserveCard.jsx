@@ -45,7 +45,7 @@ const ReserveCard = (props) => {
                     <Card.Text className="card-roomNum">Total price: ${props.price} </Card.Text>
                 </Col>
             </Row>
-            <Button className="cancel" onClick={deleteReservation}> Cancel reservation </Button>
+            {props.current && <Button className="cancel" onClick={deleteReservation}> Cancel reservation </Button>}
             <ToastContainer />
         </Card.Body>
       </Card> 

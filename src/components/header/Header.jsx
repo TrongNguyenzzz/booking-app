@@ -63,9 +63,6 @@ const Header = ({type}) => {
         setOpenOption(!openOption);
     }
 
-
-
-
     return(
         <div className="header">
             <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
@@ -75,9 +72,6 @@ const Header = ({type}) => {
                     </div>
                     <div className="headerListItem">
                         <li><a  href="https://www.google.com/travel/flights" > <BsFillAirplaneFill/> Flight </a></li>
-                    </div>
-                    <div className="headerListItem">
-                        <li><Link to = "/" > <MdTour/> Attractions </Link></li>
                     </div>
                     {user && (
                         <div className="headerListItem">

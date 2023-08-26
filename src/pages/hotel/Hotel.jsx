@@ -13,6 +13,7 @@ import "./hotel.css"
 import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import Reserve from "../../components/reserve/Reserve";
+import Review from "../../components/review/Review";
 
 const Hotel = () => {
 
@@ -69,8 +70,6 @@ const Hotel = () => {
     
         setSlideNumber(newSlideNumber)
     };
-
-    console.log(options);
 
     return(
         <div> 
@@ -154,6 +153,11 @@ const Hotel = () => {
                             </div>
                         </div>
                     </div>
+
+                    <div className="hotel-review">
+                            <Review hotelid={id} />
+                    </div>
+
                 </div>
             </div>
             {openModal && <Reserve setOpen={setOpenModal} hotelId={id} hotelName={name} hotelPic={data.photos[0]} duration={diffDays} />}
