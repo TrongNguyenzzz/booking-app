@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Reserve = ({setOpen, hotelId, hotelName, hotelPic, duration}) => {
     const [selectedRoom, setSelectedRoom] = useState([])
-    const { data } = useFetch(`http://54.67.36.133:5050/api/hotels/room/${hotelId}`)
+    const { data } = useFetch(`http://localhost:5050/api/hotels/room/${hotelId}`)
     const { dates } = useContext(SearchContext);
     const { user } = useContext(AuthContext);
 
@@ -75,8 +75,8 @@ const Reserve = ({setOpen, hotelId, hotelName, hotelPic, duration}) => {
                 const myArr = roomId.split(",");
                 const roomNum = parseInt(myArr[1]);
                 const totalPrice = prices[roomNum] * duration;
-                const res = axios.put(`http://54.67.36.133:5050/api/room/availability/${myArr[0]}`, {dates: allDates,});
-                axios.post(`http://54.67.36.133:5050/api/reservation/${user.details._id}`, {user: user.details._id, room: myArr[0], 
+                const res = axios.put(`http://localhost:5050/api/room/availability/${myArr[0]}`, {dates: allDates,});
+                axios.post(`http://localhost:5050/api/reservation/${user.details._id}`, {user: user.details._id, room: myArr[0], 
                 dates: allDates, hotel: hotelId, hotelName: hotelName, roomNumber: roomNum, hotelPhoto: hotelPic, total: totalPrice})
                 return res.data;
             }));

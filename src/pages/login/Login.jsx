@@ -23,7 +23,7 @@ const Login = () => {
         e.preventDefault()
         dispatch({type:"LOGIN_START"})
         try{
-            const res = await axios.post("http://54.67.36.133:5050/api/auth/login", credentials);
+            const res = await axios.post("http://localhost:5050/api/auth/login", credentials);
             dispatch({ type:"LOGIN_SUCCESS", payload:res.data});
             navigate("/");
         } catch(err) {

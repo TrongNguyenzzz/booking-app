@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Review = ({hotelid}) => {
 
-    const { data, reFetch } =  useFetch(`http://54.67.36.133:5050/api/review/hotel/${hotelid}`);
+    const { data, reFetch } =  useFetch(`http://localhost:5050/api/review/hotel/${hotelid}`);
 
     const { user } = useContext(AuthContext);
 
@@ -49,7 +49,7 @@ const Review = ({hotelid}) => {
             fail();
         } else {
             try {
-                axios.post("http://54.67.36.133:5050/api/review", {userid: user.details._id, rate: currRate, 
+                axios.post("http://localhost:5050/api/review", {userid: user.details._id, rate: currRate, 
                 comment: currComment, hotelid: hotelid, username: user.details.username});
                 setOpenReview(false);
                 notification();

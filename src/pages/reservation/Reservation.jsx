@@ -13,7 +13,7 @@ const Reservation = () => {
 
     const userId = user.details._id
 
-    const { data } =  useFetch(`http://54.67.36.133:5050/api/reservation/find/${userId}`);
+    const { data } =  useFetch(`http://localhost:5050/api/reservation/find/${userId}`);
 
     const date = new Date();
 

@@ -22,7 +22,7 @@ const ReserveCard = (props) => {
 
     const deleteReservation = () => {
         try{
-            axios.delete(`http://54.67.36.133:5050/api/reservation/${props.reserveId}/${props.userId}`);
+            axios.delete(`http://localhost:5050/api/reservation/${props.reserveId}/${props.userId}`);
             notification();
         } catch(err) {}
     }

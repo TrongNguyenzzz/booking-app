@@ -21,7 +21,7 @@ const Hotel = () => {
     const temp = location.pathname.split('/');
     const id = temp[temp.length - 1];
 
-    const { data, reFetch } =  useFetch(`http://54.67.36.133:5050/api/hotels/${id}`);
+    const { data, reFetch } =  useFetch(`http://localhost:5050/api/hotels/${id}`);
     
     const name = data.name;
 

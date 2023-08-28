@@ -46,7 +46,7 @@ const Register = () => {
 
     const handleClick = async e => {
         try{
-            await axios.post("http://54.67.36.133:5050/api/auth/register", credentials);
+            await axios.post("http://localhost:5050/api/auth/register", credentials);
             notification();
         } catch(err) {
             fail();
