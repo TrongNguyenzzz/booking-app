@@ -1,33 +1,18 @@
-# Demo Link: https://www.youtube.com/watch?v=HBzZPsiOX20
+# Hotel Management Project
 
-# Create React App
+## Brief description of the project
 
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
+This project simulates the hotel management system which allows users to make a reservation, and cancel a reservation. The website also has an introduction about different cities where the hotels are located with various pictures of famous places and best dishes recommendations of the town. Each user can create their own account and log in to reserve a hotel and retrieve all the information about their reservations.
 
-## Deploy Your Own
+------------------------------------------------------------------------------------
 
-Deploy your own Create React App project with Vercel.
+## Demo Link: https://youtu.be/HBzZPsiOX20?feature=shared)https://youtu.be/HBzZPsiOX20?feature=shared
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
+## Instruction for testing the website
 
-_Live Example: https://create-react-template.vercel.app/_
+1. Clone the project. Then go into the booking-api file and run npm start. This command will run the api of the hotel management system on http://localhost:5050 so that the client side can call the APIs.
+2. Go into src and run npm start. This will run and prompt the website on http://localhost:3000 so you can test all the features of the website.
 
-## Available Scripts
+Here is the image when you start a website
 
-In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes. You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.
-
-It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
