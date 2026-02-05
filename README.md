@@ -1,5 +1,9 @@
 # Hotel Management Project
 
+**Last Updated:** 2026-02-05T06:59:02 UTC
+
+---
+
 ## Brief description of the project
 
 This project simulates the hotel management system which allows users to make a reservation, and cancel a reservation. The website also has an introduction about different cities where the hotels are located with various pictures of famous places and best dishes recommendations of the town. Each user can create their own account and log in to reserve a hotel and retrieve all the information about their reservations.
