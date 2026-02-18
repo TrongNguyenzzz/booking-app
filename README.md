@@ -88,11 +88,11 @@ booking-app/
 │   │   │   ├── reservation.js       # Reservation logic
 │   │   │   └── review.js            # Review logic
 │   │   ├── models/
-│   │   │   ├── User.js              # User schema
-│   │   │   ├── Hotel.js             # Hotel schema
-│   │   │   ├── Room.js              # Room schema
-│   │   │   ├── Reservation.js       # Reservation schema
-│   │   │   └── Review.js            # Review schema
+│   │   │   ├── user.js              # User schema
+│   │   │   ├── hotel.js             # Hotel schema
+│   │   │   ├── room.js              # Room schema
+│   │   │   ├── reservation.js       # Reservation schema
+│   │   │   └── review.js            # Review schema
 │   │   └── utils/
 │   │       ├── verifyToken.js       # JWT verification middleware
 │   │       └── error.js             # Error handling utility
