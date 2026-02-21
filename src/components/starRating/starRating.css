@@ -1,0 +1,25 @@
+.starRating {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.starInteractive {
+    cursor: pointer;
+}
+
+.starStatic {
+    cursor: default;
+}
+
+.starFilled {
+    color: #ffc107;
+}
+
+.starEmpty {
+    color: #e0e0e0;
+}
+
+.starInteractive:hover .starEmpty {
+    color: #ffc107;
+}

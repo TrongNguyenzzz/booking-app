@@ -23,7 +23,6 @@
 .row1 {
     display: flex;
     flex-direction: row;
-    /* margin-top: 2%; */
 }
 
 .endCol1 {
@@ -58,4 +57,66 @@
 
 .temp {
     font-weight: bold;
+}
+
+.reviewHeader {
+    margin-bottom: 15px;
+}
+
+.averageRatingDisplay {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.averageRatingLabel {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.averageRatingValue {
+    font-weight: bold;
+    font-size: 18px;
+    color: #003580;
+}
+
+.reviewCount {
+    font-size: 14px;
+    color: #666;
+}
+
+.noReviews {
+    color: #888;
+    font-style: italic;
+    margin: 10px 0;
+}
+
+.ratingInput {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.ratingInputLabel {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.ratingInputValue {
+    font-weight: bold;
+    color: #003580;
+}
+
+.reviewCardRating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.reviewCardRatingValue {
+    font-weight: bold;
+    color: #003580;
+    font-size: 14px;
 }

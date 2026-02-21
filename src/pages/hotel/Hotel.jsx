@@ -14,6 +14,7 @@ import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import Reserve from "../../components/reserve/Reserve";
 import Review from "../../components/review/Review";
+import StarRating from "../../components/starRating/StarRating";
 
 const Hotel = () => {
 
@@ -149,7 +150,8 @@ const Hotel = () => {
                             }
                             <div className="tempRate">
                                 <span> Rating </span>
-                                <button className="rateBut">{data.rating ? data.rating : 8.5}</button>
+                                <button className="rateBut">{data.rating ? data.rating : "N/A"}</button>
+                                <StarRating rating={Math.round(data.rating || 0)} maxStars={10} size={16} />
                             </div>
                         </div>
                     </div>

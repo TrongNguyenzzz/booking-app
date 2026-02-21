@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import "./review.css";
 import {Row, Col} from "react-bootstrap";
+import StarRating from "../starRating/StarRating";
 
 const ReviewCard = (props) => {
     return (
@@ -13,7 +14,13 @@ const ReviewCard = (props) => {
                     <Card.Text className="card-user"> <p className="temp">User</p> {props.user} </Card.Text> 
                 </Col>
                 <Col className="endCol1">
-                    <Card.Text className="card-user"> <p className="temp">Rate</p> {props.rate} </Card.Text>
+                    <Card.Text className="card-user">
+                        <p className="temp">Rating</p>
+                        <div className="reviewCardRating">
+                            <StarRating rating={props.rate} maxStars={10} size={16} />
+                            <span className="reviewCardRatingValue">{props.rate}/10</span>
+                        </div>
+                    </Card.Text>
                 </Col>
             </Row>
 

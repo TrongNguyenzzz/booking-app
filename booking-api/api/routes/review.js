@@ -1,5 +1,5 @@
 import express from "express";
-import { createReview, getReview, getReviews, getHotelReview } from "../controllers/review.js";
+import { createReview, getReview, getReviews, getHotelReview, getHotelAverageRating } from "../controllers/review.js";
 
 const router = express.Router();
 
@@ -15,6 +15,7 @@ router.post("/", createReview);
 //GET
 router.get("/:id", getReview);
 router.get("/hotel/:id", getHotelReview);
+router.get("/hotel/:id/average", getHotelAverageRating);
 
 //GET ALL
 router.get("/", getReviews);
