@@ -1,5 +1,6 @@
 import "./searchItem.css";
 import { Link } from "react-router-dom";
+import StarRating from "../starRating/StarRating";
 
 const SearchItem = ({item}) => {
     return (
@@ -16,7 +17,10 @@ const SearchItem = ({item}) => {
             </div>
             <div className="siDetails">
                 <div className="siDetailTexts">
-                    <button className="siCheckButton1">Rating: {item.rating}</button>
+                    <div className="siRatingDisplay">
+                        <button className="siCheckButton1">{item.rating ? item.rating : "N/A"}</button>
+                        <StarRating rating={Math.round(item.rating || 0)} maxStars={10} size={14} />
+                    </div>
                 </div>
 
                 <div className="siDetailTexts">
