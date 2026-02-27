@@ -1,41 +1,324 @@
-# Hotel Management Project
+# Booking App — Hotel Booking Web Application
 
-## Brief description of the project
+A full-stack hotel booking web application built with a **React 18** frontend and an **Express.js / Node.js** backend, using **MongoDB** as the database. Users can browse hotels across various cities, search for available rooms, make and manage reservations, leave reviews, and explore city-specific travel pages.
 
-This project simulates the hotel management system which allows users to make a reservation, and cancel a reservation. The website also has an introduction about different cities where the hotels are located with various pictures of famous places and best dishes recommendations of the town. Each user can create their own account and log in to reserve a hotel and retrieve all the information about their reservations.
+---
 
-------------------------------------------------------------------------------------
+## Table of Contents
 
-## Demo Link: https://youtu.be/HBzZPsiOX20?feature=shared)https://youtu.be/HBzZPsiOX20?feature=shared
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Prerequisites](#prerequisites)
+- [Installation and Setup](#installation-and-setup)
+  - [Backend Setup](#backend-setup)
+  - [Frontend Setup](#frontend-setup)
+- [API Endpoints](#api-endpoints)
+  - [Auth](#auth---apiauth)
+  - [Users](#users---apiuser)
+  - [Hotels](#hotels---apihotels)
+  - [Rooms](#rooms---apiroom)
+  - [Reservations](#reservations---apireservation)
+  - [Reviews](#reviews---apireview)
+- [Available Scripts](#available-scripts)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Instruction for testing the website
+---
 
-1. Clone the project. Then go into the booking-api file and run npm start. This command will run the api of the hotel management system on http://localhost:5050 so that the client side can call the APIs.
-2. Go into src and run npm start. This will run and prompt the website on http://localhost:3000 so you can test all the features of the website.
+## Key Features
 
-Here is the image when you start a website
+- **Hotel Search & Browsing** — Search for hotels by city, dates, and number of guests; browse results with filters.
+- **Room Reservation** — Select a hotel, view available rooms, and reserve rooms for specific dates.
+- **User Authentication** — Register a new account and log in with secure password hashing and JWT-based session management.
+- **Hotel Reviews** — Authenticated users can leave ratings and comments for hotels they have visited.
+- **City-Specific Pages** — Dedicated travel pages for cities including Los Angeles, New York, Berlin, London, Seattle, Hanoi, Budapest, Tucson, and Dong Ha with local highlights and recommendations.
+- **Featured Properties & Property Listings** — Homepage showcases featured hotels and categorized property types (hotels, apartments, resorts, villas, cabins).
+- **Reservation Management** — View current and past reservations with the ability to cancel upcoming bookings.
 
-![Screenshot 2023-08-28 at 10 34 45 PM](https://github.com/TrongNguyenzzz/booking-app/assets/89328535/9b282e0f-c714-470e-8fa0-4fa533ef521c)
+---
 
-You can click on the images of different cities to see the introduction and recommendations for each city. Below that will be the different property types and best rate places for the guests.
-If you already have an account, log in with the right button on top to make a reservation. Otherwise, you can register with the left button on top and use that account to log in.
+## Tech Stack
 
-After logging in, you can choose the city you want to go to, the date and amount of people, and then click search, there will be many options for the users to choose from.
+### Frontend
 
-![Screenshot 2023-08-28 at 10 41 33 PM](https://github.com/TrongNguyenzzz/booking-app/assets/89328535/15f598af-3964-47f6-978f-e64ff3f6f6bc)
+| Technology | Version | Purpose |
+|---|---|---|
+| React | ^18.2.0 | UI library |
+| React Router | ^6.14.2 | Client-side routing |
+| React Bootstrap | ^2.8.0 | UI component library |
+| Axios | ^1.4.0 | HTTP client |
+| date-fns | ^2.30.0 | Date utility functions |
+| react-date-range | ^1.4.0 | Date range picker component |
+| react-toastify | ^9.1.3 | Toast notifications |
+| Swiper | ^10.2.0 | Touch slider / carousel |
 
-When the users choose any of the hotels, there will be information such as the name, address, introduction, and the price for the hotel. At the end of the page, there will also be reviews from other people for that hotel as well. Click on Reserve to reserve your favorite room.
+### Backend
 
-![Screenshot 2023-08-28 at 10 42 42 PM](https://github.com/TrongNguyenzzz/booking-app/assets/89328535/63168646-8d2f-4bf6-92ac-2c4725aa493f)
+| Technology | Version | Purpose |
+|---|---|---|
+| Express.js | ^4.18.2 | Web framework |
+| Node.js | 14.x+ | Runtime environment |
+| MongoDB | ^5.7.0 | Database driver |
+| Mongoose | ^7.4.1 | MongoDB ODM |
+| jsonwebtoken (JWT) | ^9.0.1 | Authentication tokens |
+| bcryptjs | ^2.4.3 | Password hashing |
+| cookie-parser | ^1.4.6 | Cookie handling middleware |
+| CORS | ^2.8.5 | Cross-origin resource sharing |
+| dotenv | ^16.3.1 | Environment variable management |
 
-If the users want to check their reservation (both past and current), they can click on Reservation, they can also cancel any of the current reservations but not the past reservation.
+---
 
-![Screenshot 2023-08-28 at 10 45 42 PM](https://github.com/TrongNguyenzzz/booking-app/assets/89328535/249b7b3a-4094-4df5-a520-354118980c9e)
+## Project Structure
 
-### Disclaimer: All the information on the page such as hotel name, and address are what I came up with and they are not real but the information of each city is quite correct based on my research of different cities.
+```
+booking-app/
+├── public/                          # Static assets (index.html, favicon, etc.)
+├── src/                             # Frontend source code
+│   ├── assets/                      # Static assets (images, etc.)
+│   ├── components/                  # Reusable UI components
+│   │   ├── featured/                # Featured cities section
+│   │   ├── footer/                  # Footer component
+│   │   ├── guestLove/               # Guest favorites section
+│   │   ├── header/                  # Header with search bar
+│   │   ├── navbar/                  # Navigation bar
+│   │   ├── propertyList/            # Property type listings & slider
+│   │   ├── reserve/                 # Room reservation modal
+│   │   ├── review/                  # Review display & review cards
+│   │   └── searchItem/              # Hotel search result card
+│   ├── context/                     # React Context providers
+│   │   ├── AuthContext.jsx          # Authentication state management
+│   │   └── SearchContext.jsx        # Search criteria state management
+│   ├── hooks/                       # Custom React hooks
+│   │   └── useFetch.js             # Reusable data-fetching hook
+│   ├── pages/                       # Page-level components
+│   │   ├── city/                    # City pages (LA, New York, Berlin, etc.)
+│   │   ├── home/                    # Homepage
+│   │   ├── hotel/                   # Single hotel detail page
+│   │   ├── list/                    # Hotel search results page
+│   │   ├── login/                   # Login page
+│   │   ├── register/                # Registration page
+│   │   └── reservation/             # User reservations page
+│   ├── App.js                       # Root component with route definitions
+│   └── index.js                     # Application entry point
+├── booking-api/                     # Backend source code
+│   ├── api/
+│   │   ├── controllers/             # Route handler logic
+│   │   │   ├── auth.js              # Register & login controllers
+│   │   │   ├── hotel.js             # Hotel CRUD controllers
+│   │   │   ├── reservation.js       # Reservation CRUD controllers
+│   │   │   ├── review.js            # Review controllers
+│   │   │   ├── room.js              # Room CRUD controllers
+│   │   │   └── user.js              # User CRUD controllers
+│   │   ├── models/                  # Mongoose schemas
+│   │   │   ├── hotel.js             # Hotel model
+│   │   │   ├── reservation.js       # Reservation model
+│   │   │   ├── review.js            # Review model
+│   │   │   ├── room.js              # Room model
+│   │   │   └── user.js              # User model
+│   │   ├── routes/                  # Express route definitions
+│   │   │   ├── auth.js              # /api/auth routes
+│   │   │   ├── hotel.js             # /api/hotels routes
+│   │   │   ├── reservation.js       # /api/reservation routes
+│   │   │   ├── review.js            # /api/review routes
+│   │   │   ├── room.js              # /api/room routes
+│   │   │   └── user.js              # /api/user routes
+│   │   └── utils/                   # Utility functions
+│   │       ├── error.js             # Custom error creator
+│   │       └── verifyToken.js       # JWT verification middleware
+│   ├── index.js                     # Server entry point
+│   └── package.json                 # Backend dependencies
+└── package.json                     # Frontend dependencies
+```
 
-### I hope you enjoy the page!
+---
 
+## Prerequisites
 
+Make sure the following software is installed on your machine before proceeding:
+
+- **Node.js** — v14 or higher ([https://nodejs.org](https://nodejs.org))
+- **npm** — Comes bundled with Node.js
+- **MongoDB** — A running MongoDB instance (local or cloud via [MongoDB Atlas](https://www.mongodb.com/atlas))
+
+---
+
+## Installation and Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/TrongNguyenzzz/booking-app.git
+cd booking-app
+```
+
+### 2. Backend Setup
+
+```bash
+# Navigate to the backend directory
+cd booking-api
+
+# Install dependencies
+npm install
+```
+
+Create a `.env` file inside the `booking-api/` directory with the following variables:
+
+```env
+MONGO=your_mongodb_connection_string
+JWT=your_jwt_secret_key
+PORT=5050
+```
+
+| Variable | Description |
+|---|---|
+| `MONGO` | MongoDB connection string (e.g., `mongodb+srv://user:pass@cluster.mongodb.net/booking`) |
+| `JWT` | Secret key used to sign and verify JSON Web Tokens |
+| `PORT` | Port for the Express server (defaults to `5050` if not set) |
+
+Start the backend server:
+
+```bash
+npm start
+```
+
+The API server will be running at **http://localhost:5050**.
+
+### 3. Frontend Setup
+
+```bash
+# Navigate back to the project root
+cd ..
+
+# Install dependencies
+npm install
+```
+
+Start the frontend development server:
+
+```bash
+npm start
+```
+
+The application will be running at **http://localhost:3000**.
+
+---
+
+## API Endpoints
+
+The backend exposes the following REST API routes. All routes are prefixed with `/api`.
+
+### Auth — `/api/auth`
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/auth/register` | Register a new user |
+| `POST` | `/api/auth/login` | Log in and receive an authentication cookie |
+
+### Users — `/api/user`
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/user` | Get all users |
+| `GET` | `/api/user/:id` | Get a specific user by ID |
+| `PUT` | `/api/user/:id` | Update a user by ID |
+| `DELETE` | `/api/user/:id` | Delete a user by ID |
+
+### Hotels — `/api/hotels`
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/hotels` | Get all hotels (supports query filters) |
+| `GET` | `/api/hotels/:id` | Get a specific hotel by ID |
+| `POST` | `/api/hotels` | Create a new hotel |
+| `PUT` | `/api/hotels/:id` | Update a hotel by ID |
+| `DELETE` | `/api/hotels/:id` | Delete a hotel by ID |
+| `GET` | `/api/hotels/countByCity` | Get hotel counts grouped by city |
+| `GET` | `/api/hotels/countByType` | Get hotel counts grouped by property type |
+| `GET` | `/api/hotels/room/:id` | Get all rooms for a specific hotel |
+
+### Rooms — `/api/room`
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/room` | Get all rooms |
+| `POST` | `/api/room/:hotelid` | Create a new room for a hotel |
+| `PUT` | `/api/room/:id` | Update a room by ID |
+| `PUT` | `/api/room/availability/:id` | Update room availability (dates) |
+| `DELETE` | `/api/room/:id/:hotelid` | Delete a room by ID from a hotel |
+
+### Reservations — `/api/reservation`
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/reservation` | Get all reservations |
+| `GET` | `/api/reservation/:id` | Get a specific reservation by ID |
+| `GET` | `/api/reservation/find/:userId` | Get all reservations for a user |
+| `POST` | `/api/reservation/:userId` | Create a reservation for a user |
+| `PUT` | `/api/reservation/:id` | Update a reservation by ID |
+| `DELETE` | `/api/reservation/:id/:userId` | Delete a reservation by ID |
+
+### Reviews — `/api/review`
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/review` | Get all reviews |
+| `GET` | `/api/review/:id` | Get a specific review by ID |
+| `GET` | `/api/review/hotel/:id` | Get all reviews for a specific hotel |
+| `POST` | `/api/review` | Create a new review |
+
+---
+
+## Available Scripts
+
+### Frontend
+
+Run these commands from the **project root** directory:
+
+| Command | Description |
+|---|---|
+| `npm start` | Starts the React development server on `http://localhost:3000` |
+| `npm run build` | Builds the app for production into the `build/` folder |
+| `npm test` | Launches the test runner in interactive watch mode |
+| `npm run eject` | Ejects the Create React App configuration (irreversible) |
+
+### Backend
+
+Run these commands from the **`booking-api/`** directory:
+
+| Command | Description |
+|---|---|
+| `npm start` | Starts the Express server using nodemon for auto-reloading |
+
+---
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. **Fork** the repository.
+2. **Create a feature branch** from `main`:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. **Commit** your changes with clear, descriptive messages:
+   ```bash
+   git commit -m "Add your feature description"
+   ```
+4. **Push** to your fork:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. **Open a Pull Request** against the `main` branch with a detailed description of your changes.
+
+Please make sure your code follows the existing project conventions and that any new features include appropriate documentation.
+
+---
+
+## License
+
+This project is licensed under the **ISC License**.
 
 
