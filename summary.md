@@ -143,7 +143,7 @@ booking-app/
 | email | String | Required, unique |
 | password | String | Required (stored as bcrypt hash) |
 | isAdmin | Boolean | Default: false |
-| reservations | [ObjectId] | Array of Reservation references |
+| reservations | [String] | Array of Reservation ID strings |
 
 ### Hotel (`booking-api/api/models/hotel.js`)
 
@@ -158,7 +158,7 @@ booking-app/
 | title | String | Required |
 | desc | String | Required |
 | rating | Number | Min: 0, Max: 10 |
-| rooms | [ObjectId] | Array of Room references |
+| rooms | [String] | Array of Room ID strings |
 | cheapestPrice | Number | Required |
 | featured | Boolean | Default: false |
 | subSearch | String | Subtitle for search display |
@@ -178,10 +178,10 @@ booking-app/
 
 | Field | Type | Notes |
 |---|---|---|
-| user | ObjectId | Reference to User |
+| user | String | User ID stored as string |
 | dates | [Date] | Array of reserved dates |
-| hotel | ObjectId | Reference to Hotel |
-| room | ObjectId | Reference to Room |
+| hotel | String | Hotel ID stored as string |
+| room | String | Room ID stored as string |
 | hotelName | String | Denormalized hotel name |
 | roomNumber | Number | Denormalized room number |
 | hotelPhoto | String | Denormalized hotel photo URL |
@@ -191,10 +191,10 @@ booking-app/
 
 | Field | Type | Notes |
 |---|---|---|
-| userid | ObjectId | Reference to User |
+| userid | String | User ID stored as string |
 | rate | Number | 0 to 10 |
 | comment | String | Review text |
-| hotelid | ObjectId | Reference to Hotel |
+| hotelid | String | Hotel ID stored as string |
 | username | String | Denormalized username |
 
 > **Note:** The schema variable in `review.js` is misleadingly named `UserSchema`, but the exported model is correctly named `Review`.
@@ -278,7 +278,7 @@ All endpoints are served under `http://localhost:5050`.
 | Login | `/login` | Login form (username + password) dispatching to AuthContext |
 | Register | `/register` | Registration form (username, password, email) with POST to `/api/auth/register` |
 | Reservation | `/reservation` | User's reservations page, split into "Current" and "Past" tabs based on dates |
-| City Pages | `/city/<name>` | 9 static city guide pages (Hanoi, Dongha, Tucson, Budapest, Newyork, LA, Seattle, Berlin, London) |
+| City Pages | `/<name>` | 9 static city guide pages at root-level routes: `/hanoi`, `/dongha`, `/tucson`, `/budapest`, `/newyork`, `/la`, `/seattle`, `/berlin`, `/london` |
 
 ### Components
 
@@ -380,15 +380,15 @@ The application features **9 static city guide pages**, each with its own dedica
 
 | City | Route |
 |---|---|
-| Hanoi | `/city/hanoi` |
-| Dong Ha | `/city/dongha` |
-| Tucson | `/city/tucson` |
-| Budapest | `/city/budapest` |
-| New York | `/city/newyork` |
-| Los Angeles | `/city/la` |
-| Seattle | `/city/seattle` |
-| Berlin | `/city/berlin` |
-| London | `/city/london` |
+| Hanoi | `/hanoi` |
+| Dong Ha | `/dongha` |
+| Tucson | `/tucson` |
+| Budapest | `/budapest` |
+| New York | `/newyork` |
+| Los Angeles | `/la` |
+| Seattle | `/seattle` |
+| Berlin | `/berlin` |
+| London | `/london` |
 
 Each city page includes:
 - A text description of the city
