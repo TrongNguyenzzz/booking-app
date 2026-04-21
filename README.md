@@ -320,6 +320,10 @@ The application will be available at `http://localhost:3000`.
 | `/berlin` | Berlin | City guide for Berlin |
 | `/london` | London | City guide for London |
 
+## Author
+
+**trongngn_5**
+
 ## Disclaimer
 
 All the information on the page such as hotel names and addresses are fictional and not real. However, the information about each city is based on research and is reasonably accurate.
