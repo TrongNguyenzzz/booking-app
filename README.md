@@ -2,6 +2,10 @@
 
 A full-stack hotel management and booking web application that allows users to search for hotels across multiple cities, make reservations, leave reviews, and explore city guides with local recommendations.
 
+## Author
+
+- [trongngn_5](https://github.com/TrongNguyenzzz)
+
 ## Demo
 
 [Watch the demo video on YouTube](https://youtu.be/HBzZPsiOX20)
