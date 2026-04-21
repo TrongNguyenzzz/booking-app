@@ -1,0 +1,21 @@
+The Code We Write
+
+Lines of logic, row by row,
+A quiet craft that few will know.
+We shape the world with keystrokes light,
+Turn abstract thought to working sight.
+
+A function here, a loop right there,
+Each variable placed with care.
+The compiler hums, the tests go green,
+The finest art you've never seen.
+
+Through bugs we wade, through errors deep,
+Through late-night watches, losing sleep.
+But when it runs without a flaw,
+We sit back, stunned, in silent awe.
+
+For in these lines of black and white,
+We find a strange and pure delight --
+The joy of building, bit by bit,
+A world that runs because we writ.
