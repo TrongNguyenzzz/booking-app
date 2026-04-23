@@ -49,7 +49,7 @@ The application follows a client-server architecture:
 
 - **Frontend**: A React single-page application that communicates with the backend REST API. State management is handled through React Context API with two contexts: `AuthContext` (user authentication state) and `SearchContext` (search parameters). A custom `useFetch` hook provides a reusable pattern for data fetching via Axios.
 - **Backend**: An Express.js REST API using the MVC pattern (models, controllers, routes). Data is stored in MongoDB via Mongoose ODM. The backend uses ES modules (`"type": "module"` in package.json).
-- **Authentication**: Users register with a username, email, and password. Passwords are hashed with bcryptjs. On login, a JWT is generated and set as an httpOnly cookie named `access_token`. The `verifyToken` middleware reads this cookie to authenticate requests.
+- **Authentication**: Users register with a username, email, and password. Passwords are hashed with bcryptjs. On login, a JWT is generated and set as an httpOnly cookie named `access_token`. The `verifyToken` middleware is defined in `utils/verifyToken.js` and imported in several route files, but it is not currently applied to any route handler. All API routes are effectively unprotected.
 - **API base URL**: The frontend has the API base URL hardcoded to `http://localhost:5050`.
 
 ## Project Structure
@@ -134,6 +134,7 @@ booking-app/
 - Node.js (v14 or higher)
 - npm
 - MongoDB (local instance or cloud service such as MongoDB Atlas)
+- nodemon (installed globally via `npm install -g nodemon` — required for the backend start script but not listed in backend dependencies)
 
 ## Getting Started
 
@@ -176,7 +177,7 @@ booking-app/
    npm start
    ```
 
-   The API server runs on http://localhost:5050 using nodemon for auto-reload.
+   The API server runs on http://localhost:5050. The start script uses `nodemon` for auto-reload, which must be installed globally (see Prerequisites).
 
 2. **Start the frontend** (in a separate terminal)
 
@@ -260,6 +261,8 @@ booking-app/
 | reservations | [String] | Array of reservation IDs             |
 | timestamps   |          | createdAt and updatedAt (automatic)  |
 
+> **Note:** The User schema uses `require: true` instead of `required: true` for username, email, and password. Since `require` is not a recognized Mongoose validator, these fields are not actually enforced as required at the database level.
+
 ### Hotel
 
 | Field         | Type     | Description                                |
@@ -278,6 +281,8 @@ booking-app/
 | cheapestPrice | Number   | Lowest room price (required)               |
 | featured      | Boolean  | Featured flag (default: false)             |
 | subSearch     | String   | Search subtitle (required)                 |
+
+> **Note:** Unlike the other models, the Hotel schema does not enable Mongoose timestamps (`createdAt`/`updatedAt`).
 
 ### Room
 
@@ -357,7 +362,7 @@ booking-app/
 
 | Command     | Description                                  |
 |-------------|----------------------------------------------|
-| `npm start` | Start the server with nodemon (auto-reload)  |
+| `npm start` | Start the server with nodemon (auto-reload). Requires nodemon to be installed globally. |
 
 ## Deployment
 
