@@ -24,5 +24,5 @@
     "Verify README.md contains key section headers: Tech Stack, Architecture, Project Structure, API Endpoints, Data Models, Getting Started, Environment Variables"
   ],
   "blocked_reason": null,
-  "findings": "Docs-only change, no build/test verification needed. All 17 sections present in README.md. All 4 screenshot URLs and YouTube demo link preserved. All 6 route files documented with exact endpoints. All 5 Mongoose schemas documented with exact fields. updated_joke.md created with hotel-themed joke."
+  "findings": "Docs-only change, no build/test verification needed. All 17 sections present in README.md. All 4 screenshot URLs and YouTube demo link preserved. All 6 route files documented with exact endpoints. All 5 Mongoose schemas documented with exact fields. updated_joke.md created with hotel-themed joke. Review fixes applied: (1) phantom GET /api/room/:id was not present in README - no fix needed; (2) added note that Hotel schema lacks timestamps unlike other models; (3) clarified auth middleware is defined but not applied to any route handlers; (4) added note that User schema uses 'require' (Mongoose no-op) instead of 'required'; (5) documented nodemon as a global prerequisite since it's not in backend dependencies."
 }
