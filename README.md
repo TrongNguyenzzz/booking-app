@@ -36,6 +36,10 @@ If the users want to check their reservation (both past and current), they can c
 
 ### I hope you enjoy the page!
 
+## Author
+
+trongngn_working
+
 
 
 
