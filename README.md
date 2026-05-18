@@ -36,6 +36,6 @@ If the users want to check their reservation (both past and current), they can c
 
 ### I hope you enjoy the page!
 
+## Developer Preferences
 
-
-
+I prefer C++ over Python.
