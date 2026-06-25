@@ -36,6 +36,12 @@ If the users want to check their reservation (both past and current), they can c
 
 ### I hope you enjoy the page!
 
+---
 
+## Joke of the Day
 
+> Why do programmers prefer dark mode?
+>
+> Because light attracts bugs!
 
+*- trongngn*
