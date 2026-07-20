@@ -40,3 +40,40 @@
     display: flex;
     flex-direction: row;
 }
+
+
+.navWishlistBtn {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.navHeartIcon {
+    color: white;
+    font-size: 22px;
+}
+
+.navWishlistBtn:hover .navHeartIcon {
+    color: #e74c3c;
+}
+
+.navWishlistBadge {
+    position: absolute;
+    top: -2px;
+    right: 2px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -6,13 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import { sendToVercelAnalytics } from './vitals';
 import { SearchContextProvider } from './context/SearchContext';
 import { AuthContextProvider } from './context/AuthContext';
+import { WishlistContextProvider } from './context/WishlistContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthContextProvider>
-      <SearchContextProvider>
-        <App />
-      </SearchContextProvider>  
+      <WishlistContextProvider>
+        <SearchContextProvider>
+          <App />
+        </SearchContextProvider>
+      </WishlistContextProvider>
     </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById('root')

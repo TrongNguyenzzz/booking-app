@@ -104,3 +104,31 @@
     border: none;
     cursor: pointer;
 }
+
+
+.siWishlistBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    align-self: flex-end;
+    transition: transform 0.2s;
+}
+
+.siWishlistBtn:hover {
+    transform: scale(1.2);
+}
+
+.siHeartFilled {
+    color: #e74c3c;
+    font-size: 24px;
+}
+
+.siHeartOutline {
+    color: #666;
+    font-size: 24px;
+}
+
+.siHeartOutline:hover {
+    color: #e74c3c;
+}

@@ -14,6 +14,7 @@ import Hotel from './pages/hotel/Hotel.jsx';
 import Login from './pages/login/Login.jsx';
 import Register from "./pages/register/Register.jsx";
 import Reservation from './pages/reservation/Reservation.jsx';
+import Wishlist from './pages/wishlist/Wishlist.jsx';
 
 import './App.css';
 
@@ -36,6 +37,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/reservation' element={<Reservation/>}/>
+        <Route path='/wishlist' element={<Wishlist/>}/>
       </Routes>
     </BrowserRouter>
   );

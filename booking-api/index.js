@@ -7,6 +7,7 @@ import roomRoute from "./api/routes/room.js"
 import hotelsRoute from "./api/routes/hotel.js"
 import review from "./api/routes/review.js"
 import reservationRoute from "./api/routes/reservation.js"
+import wishlistRoute from "./api/routes/wishlist.js"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 
@@ -41,6 +42,7 @@ app.use("/api/user", userRoute);
 app.use("/api/room", roomRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/reservation", reservationRoute);
+app.use("/api/wishlist", wishlistRoute);
 app.use("/api/review", review);
 
 app.get("/", (req, res) => {
