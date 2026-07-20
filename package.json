@@ -44,5 +44,16 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "jest": {
+        "transformIgnorePatterns": [
+            "node_modules/(?!(axios|react-icons|swiper|react-toastify)/)"
+        ],
+        "moduleNameMapper": {
+            "\\.(css)$": "<rootDir>/src/__mocks__/styleMock.js",
+            "swiper/react": "<rootDir>/src/__mocks__/swiperMock.js",
+            "swiper/modules": "<rootDir>/src/__mocks__/swiperMock.js",
+            "swiper/css(.*)": "<rootDir>/src/__mocks__/styleMock.js"
+        }
     }
 }

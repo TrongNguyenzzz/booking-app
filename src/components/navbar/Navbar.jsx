@@ -3,10 +3,13 @@ import logo from "../../assets/hotellogo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineHeart } from "react-icons/ai";
+import { WishlistContext } from "../../context/WishlistContext";
 
 const Navbar = () => {
 
     const { user, dispatch } = useContext(AuthContext);
+    const { wishlist } = useContext(WishlistContext);
 
     const navigate = useNavigate();
     
@@ -22,6 +25,12 @@ const Navbar = () => {
                 <img src={logo} alt="" className="logoImg"/>
                 {user ? (
                     <div className="navItems1">
+                        <button className="navWishlistBtn" onClick={() => navigate("/wishlist")}>
+                            <AiOutlineHeart className="navHeartIcon" />
+                            {wishlist.length > 0 && (
+                                <span className="navWishlistBadge">{wishlist.length}</span>
+                            )}
+                        </button>
                         <p> Welcome {user.details.username} </p>
                         <button className="navButton1" onClick={handleClick}>Logout</button>
                     </div>) : (
